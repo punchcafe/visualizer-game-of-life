@@ -1,0 +1,32 @@
+[gd_scene load_steps=4 format=3 uid="uid://s20o1wymhequ"]
+
+[ext_resource type="Script" uid="uid://x4ywowwjek56" path="res://container.gd" id="1_knnee"]
+[ext_resource type="Script" uid="uid://bh30txi0ppmmo" path="res://game_of_life_model.gd" id="2_knnee"]
+
+[sub_resource type="Environment" id="Environment_knnee"]
+background_mode = 1
+background_color = Color(7.52043e-10, 1.504086e-09, 0.038105257, 1)
+ambient_light_source = 2
+ambient_light_color = Color(0.96035105, 0.96035105, 0.96035093, 1)
+ambient_light_energy = 0.03
+
+[node name="NodeRoot3D" type="Node3D"]
+
+[node name="Container" type="Node3D" parent="."]
+script = ExtResource("1_knnee")
+
+[node name="GameOfLifeModel" type="Node" parent="Container"]
+script = ExtResource("2_knnee")
+metadata/_custom_type_script = "uid://bh30txi0ppmmo"
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="Container"]
+environment = SubResource("Environment_knnee")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.69521064, 0.71880615, 0, -0.71880615, 0.69521064, 0, 2.560519, 2.4853666)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.040881637, 0.999164, 0, -0.999164, 0.040881637, 0, 4.8497386, 0)
+
+[connection signal="cell_born" from="Container/GameOfLifeModel" to="Container" method="_on_game_of_life_model_cell_born"]
+[connection signal="cell_died" from="Container/GameOfLifeModel" to="Container" method="_on_game_of_life_model_cell_died"]
