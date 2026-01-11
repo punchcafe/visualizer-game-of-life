@@ -23,7 +23,7 @@ metadata/_custom_type_script = "uid://bh30txi0ppmmo"
 environment = SubResource("Environment_knnee")
 
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.69521064, 0.71880615, 0, -0.71880615, 0.69521064, 0, 2.560519, 2.4853666)
+transform = Transform3D(1, 0, 0, 0, 0.3514495, 0.9362068, 0, -0.9362068, 0.3514495, 0, 4, 1.6268128)
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.040881637, 0.999164, 0, -0.999164, 0.040881637, 0, 4.8497386, 0)

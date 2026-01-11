@@ -1,9 +1,26 @@
-[gd_scene load_steps=2 format=3 uid="uid://chw1tapl3ab3b"]
+[gd_scene load_steps=5 format=3 uid="uid://chw1tapl3ab3b"]
+
+[ext_resource type="Script" uid="uid://b2ufmwy3oifwd" path="res://cell.gd" id="1_yh0nt"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_14hpr"]
+transparency = 1
+emission_enabled = true
+emission = Color(1, 1, 1, 1)
 
 [sub_resource type="BoxMesh" id="BoxMesh_14hpr"]
+lightmap_size_hint = Vector2i(5, 7)
+material = SubResource("StandardMaterial3D_14hpr")
 size = Vector3(0.1, 0.1, 0.1)
 
-[node name="Cell" type="Node3D"]
+[sub_resource type="BoxMesh" id="BoxMesh_yh0nt"]
+size = Vector3(0.105, 0.105, 0.105)
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+[node name="Cell" type="Node3D"]
+script = ExtResource("1_yh0nt")
+
+[node name="Light" type="MeshInstance3D" parent="."]
 mesh = SubResource("BoxMesh_14hpr")
+
+[node name="Container" type="MeshInstance3D" parent="."]
+transparency = 0.98
+mesh = SubResource("BoxMesh_yh0nt")

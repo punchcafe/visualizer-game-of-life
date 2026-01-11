@@ -13,7 +13,6 @@ func _ready() -> void:
 		_cell_array.append([])
 		for x in range($GameOfLifeModel.width):
 			var child = cell_scene.instantiate()
-			child.visible = false
 			_cell_array[y].append(child)
 			add_child(child)
 			child.position = Vector3((x * 0.2) - x_offset, 0.0, (y * 0.2) - y_offset)
@@ -26,8 +25,8 @@ func _process(delta: float) -> void:
 
 
 func _on_game_of_life_model_cell_born(x: int, y: int) -> void:
-	_cell_array[y][x].visible = true
+	_cell_array[y][x].live()
 
 
 func _on_game_of_life_model_cell_died(x: int, y: int) -> void:
-	_cell_array[y][x].visible = false
+	_cell_array[y][x].die()
